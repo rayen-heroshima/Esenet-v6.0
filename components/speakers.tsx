@@ -27,7 +27,7 @@ export function Speaker() {
       quote:
         "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.",
       name: "Mahjoub Langar",
-      designation: "PDG poulina groupe",
+      designation: "PDG polina groupe",
       src: "/speqkers/mahjoub.jpg",
     },
     {
@@ -47,7 +47,9 @@ export function Speaker() {
   ];
   return (
     <div className="flex justify-center items-center flex-col bg-slate-50 py-14">
-      <h1 className="font-bold text-7xl">Intervenants de l'événement</h1>
+      <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+  Intervenants de l'événement
+</h1>
       <AnimatedTestimonials testimonials={testimonials} />
     </div>
   );
