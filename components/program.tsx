@@ -5,11 +5,11 @@ import { Timeline } from "@/components/ui/timeline";
 export function EventProgram() {
   const data = [
     {
-      title: "8:30 : Ouverture",
+      title: "8:30 : Accueil",
       content: (
-        <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Kick-off and welcoming of attendees
+        <div className="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-lg mb-6">
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-medium mb-4 leading-relaxed">
+            C'est le début officiel de l'événement avec un accueil chaleureux des participants. L'occasion idéale pour se familiariser avec les objectifs de la journée et rencontrer les premiers intervenants et organisateurs.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
@@ -17,18 +17,18 @@ export function EventProgram() {
               alt="startup template"
               width={500}
               height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-xl"
             />
           </div>
         </div>
       ),
     },
     {
-      title: "9:00 : Digital Business’ challenges",
+      title: "9:00 : Les défis du Digital Business",
       content: (
-        <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Insights into current challenges in digital business.
+        <div className="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-lg mb-6">
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-medium mb-4 leading-relaxed">
+            Une présentation sur les défis actuels auxquels sont confrontées les entreprises dans le domaine du business numérique, avec des discussions sur les stratégies et innovations pour réussir dans ce secteur.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
@@ -36,18 +36,18 @@ export function EventProgram() {
               alt="hero template"
               width={500}
               height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-xl"
             />
           </div>
         </div>
       ),
     },
     {
-      title: "9:45 : Startup’Innov",
+      title: "9:45 : Startup'Innov",
       content: (
-        <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Innovation in startup culture and solutions.
+        <div className="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-lg mb-6">
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-medium mb-4 leading-relaxed">
+            Un moment dédié à l'innovation dans la culture des startups et aux solutions novatrices qu'elles apportent dans différents domaines, allant des technologies aux modèles d'affaires disruptifs.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
@@ -55,7 +55,7 @@ export function EventProgram() {
               alt="feature template"
               width={500}
               height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-xl"
             />
           </div>
         </div>
@@ -64,19 +64,19 @@ export function EventProgram() {
     {
       title: "10:30 : Pause Café",
       content: (
-        <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Take a break and network with fellow attendees.
+        <div className="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-lg mb-6">
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-medium mb-4 leading-relaxed">
+            Un temps de pause pour se détendre, prendre un café et échanger avec d'autres participants. C'est également une excellente occasion de créer des liens et de discuter des sessions précédentes.
           </p>
         </div>
       ),
     },
     {
-      title: "10:45 : Reso’Débat",
+      title: "10:45 : Reso'Débat",
       content: (
-        <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            A discussion forum for networking and idea exchange.
+        <div className="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-lg mb-6">
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-medium mb-4 leading-relaxed">
+            Un forum de discussion où les participants peuvent échanger des idées, poser des questions et partager leurs expériences sur des sujets d'actualité dans le monde du business et de l'innovation.
           </p>
         </div>
       ),
@@ -84,9 +84,9 @@ export function EventProgram() {
     {
       title: "11:45 : Visite des Stands",
       content: (
-        <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Explore the various stands and exhibitions.
+        <div className="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-lg mb-6">
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-medium mb-4 leading-relaxed">
+            Explorez les différents stands et expositions des partenaires et entreprises présents à l'événement. C'est l'occasion de découvrir de nouveaux produits, services ou solutions.
           </p>
         </div>
       ),
@@ -94,9 +94,9 @@ export function EventProgram() {
     {
       title: "13:30 : Atelier Certifié PMI",
       content: (
-        <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            PMI Certified Workshop for project management.
+        <div className="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-lg mb-6">
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-medium mb-4 leading-relaxed">
+            Participez à un atelier certifié PMI (Project Management Institute) sur la gestion de projets, qui vous fournira des outils et des techniques pour gérer efficacement vos projets professionnels.
           </p>
         </div>
       ),
@@ -104,9 +104,9 @@ export function EventProgram() {
     {
       title: "15:30 : Clôture",
       content: (
-        <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Closing remarks and end of the event.
+        <div className="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-lg mb-6">
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-medium mb-4 leading-relaxed">
+            La session de clôture où des discours de remerciements seront prononcés et l'événement prendra officiellement fin. Un moment pour résumer les points clés de la journée et encourager les participants à appliquer ce qu'ils ont appris.
           </p>
         </div>
       ),
@@ -114,7 +114,7 @@ export function EventProgram() {
   ];
 
   return (
-    <div className="w-full bg-[#002b56] py-8">
+    <div className="w-full bg-[#002b56] py-8 px-4">
       <Timeline data={data} />
     </div>
   );

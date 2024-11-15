@@ -29,31 +29,28 @@ export default function ESENetBanner() {
           {/* Left Content Section */}
           <div className="flex flex-col flex-1">
             <span className="text-blue-200 mb-2 text-sm font-semibold">
-              WHY JOIN ESENET
+            POURQUOI REJOINDRE ESENET
             </span>
             <h1 className="text-5xl font-bold text-white mb-6">
-              Join the Ultimate
+            Rejoignez
               <br />
               ESENet Job Fair
             </h1>
             <p className="text-blue-400 text-lg mb-8">
-              Discover new career opportunities and network with industry
-              leaders.
+            Découvrez de nouvelles opportunités de carrière et connectez-vous avec des leaders de l'industrie.
             </p>
 
             <div className="flex flex-col gap-6">
               <div className="flex items-start space-x-4">
                 <Calendar className="w-6 h-6 text-blue-300 flex-shrink-0 mt-1" />
                 <p className="text-sm text-white">
-                  Connect with top companies at the heart of innovation in
-                  Tunis.
+                Connectez-vous avec des entreprises de premier plan au cœur de l'innovation à Tunis.
                 </p>
               </div>
               <div className="flex items-start space-x-4">
                 <MessageSquare className="w-6 h-6 text-blue-300 flex-shrink-0 mt-1" />
                 <p className="text-sm text-white">
-                  Engage in insightful sessions and gain valuable career
-                  insights.
+                Participez à des sessions perspicaces et obtenez des informations précieuses pour votre carrière.
                 </p>
               </div>
             </div>
@@ -62,12 +59,13 @@ export default function ESENetBanner() {
           {/* Right Stats Section */}
           <div className="flex flex-wrap justify-center items-center gap-6">
             <StatBubble
-              count="30+"
-              label="Sponsors"
+              count="20+"
+              label="Partenaires
+"
               className="w-36 h-36 bg-blue-600"
             />
             <StatBubble
-              count="150+"
+              count="10+"
               label="Speakers"
               className="w-44 h-44 bg-blue-500"
             />

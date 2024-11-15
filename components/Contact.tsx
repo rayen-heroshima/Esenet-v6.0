@@ -10,15 +10,18 @@ import { toast } from 'sonner';
 
 export function Contact() {
   const [formData, setFormData] = useState({
-    firstname: '',
-    lastname: '',
+    nom: '',
+    prenom: '',
     email: '',
     phone: '',
-    university: '',
-    heardAboutUs: '',
+    ecole: '',
+    niveau: '',
+    specialite: '',
+    recherche: '',
+    source: '',
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
@@ -63,17 +66,17 @@ export function Contact() {
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="grid md:grid-cols-2 gap-8">
                 <Input
-                  name="firstname"
-                  placeholder="First Name"
-                  value={formData.firstname}
+                  name="nom"
+                  placeholder="Nom"
+                  value={formData.nom}
                   onChange={handleChange}
                   required
                   className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12"
                 />
                 <Input
-                  name="lastname"
-                  placeholder="Last Name"
-                  value={formData.lastname}
+                  name="prenom"
+                  placeholder="Prénom"
+                  value={formData.prenom}
                   onChange={handleChange}
                   required
                   className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12"
@@ -82,7 +85,7 @@ export function Contact() {
               <Input
                 name="email"
                 type="email"
-                placeholder="Email"
+                placeholder="Adresse e-mail"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -91,30 +94,70 @@ export function Contact() {
               <Input
                 name="phone"
                 type="tel"
-                placeholder="Phone Number"
+                placeholder="Numéro de téléphone"
                 value={formData.phone}
                 onChange={handleChange}
                 required
                 className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12"
               />
               <Input
-                name="university"
-                
-                placeholder="your university"
-                value={formData.university}
+                name="ecole"
+                placeholder="École"
+                value={formData.ecole}
                 onChange={handleChange}
                 required
                 className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12"
               />
+              <select
+                name="niveau"
+                value={formData.niveau}
+                onChange={handleChange}
+                required
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12 w-full"
+              >
+                <option value="">Niveau d'études (L1, L2, L3, M1, M2)</option>
+                <option value="L1" className='text-black'>L1</option>
+                <option value="L2" className='text-black'>L2</option>
+                <option value="L3" className='text-black'>L3</option>
+                <option value="M1" className='text-black'>M1</option>
+                <option value="M2" className='text-black'>M2</option>
+              </select>
               <Input
-                name="heardAboutUs"
-                
-                placeholder="where did you hear About Us ?"
-                value={formData.heardAboutUs}
+                name="specialite"
+                placeholder="Spécialité"
+                value={formData.specialite}
                 onChange={handleChange}
                 required
                 className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12"
               />
+              <select
+                name="recherche"
+                value={formData.recherche}
+                onChange={handleChange}
+                required
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12 w-full"
+              >
+                <option value="">Êtes-vous à la recherche :</option>
+                <option value="stage" className='text-black'>D’un stage</option>
+                <option value="emploi" className='text-black'>D’un emploi</option>
+                <option value="apprentissage" className='text-black'>D’un apprentissage</option>
+                <option value="information" className='text-black'>Juste d’information</option>
+              </select>
+              <select
+                name="source"
+                value={formData.source}
+                onChange={handleChange}
+                required
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12 w-full"
+              >
+                
+                <option value="officialPage" className='text-black'>Via page officielle</option>
+                <option value="website" className='text-black'>Via site web</option>
+                <option value="email" className='text-black'>Par e-mail</option>
+                <option value="radio" className='text-black'>Via radio</option>
+                <option value="socialMedia" className='text-black'>Sur les réseaux sociaux (Facebook, Instagram, LinkedIn)</option>
+                <option value="friend" className='text-black'>Par un(e) ami(e) ou un(e) camarade de classe</option>
+              </select>
               <Button
                 type="submit"
                 size="lg"

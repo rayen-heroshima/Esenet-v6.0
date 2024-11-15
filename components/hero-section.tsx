@@ -60,7 +60,7 @@ const Countdown: React.FC = () => {
   if (!timeLeft) {
     return (
       <div className="text-white text-xl font-bold bg-blue-500/10 backdrop-blur-sm rounded-lg p-4 mt-6">
-        Event has started!
+        L'événement a commencé !
       </div>
     );
   }
@@ -69,14 +69,14 @@ const Countdown: React.FC = () => {
     <div className="mt-8 mb-6">
       <div className="text-center mb-4">
         <span className="text-blue-200 text-sm uppercase tracking-wider">
-          Event Starting In
+          L'événement commence dans
         </span>
       </div>
       <div className="flex flex-wrap justify-center gap-2">
-        <TimerComponent value={timeLeft.days} label="days" />
-        <TimerComponent value={timeLeft.hours} label="hours" />
+        <TimerComponent value={timeLeft.days} label="jours" />
+        <TimerComponent value={timeLeft.hours} label="heures" />
         <TimerComponent value={timeLeft.minutes} label="minutes" />
-        <TimerComponent value={timeLeft.seconds} label="seconds" />
+        <TimerComponent value={timeLeft.seconds} label="secondes" />
       </div>
     </div>
   );
@@ -119,7 +119,7 @@ export const ImagesSliderDemo: React.FC<ImagesSliderDemoProps> = ({
             EsenNet
           </span>{" "}
           <br />
-          Networking for Your Future
+          Votre réseau, votre avenir
         </motion.p>
 
         <Countdown />
@@ -129,7 +129,7 @@ export const ImagesSliderDemo: React.FC<ImagesSliderDemoProps> = ({
                      text-white mx-auto text-center rounded-full relative mt-4 
                      hover:bg-blue-400/20 transition-all duration-300 hover:scale-105"
         >
-          <span className="text-lg">Register now →</span>
+          <span className="text-lg">Inscrivez-vous maintenant →</span>
           <div className="absolute inset-x-0 h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-blue-500 to-transparent" />
         </Button>
       </motion.div>

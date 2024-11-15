@@ -28,7 +28,7 @@ export function Introduction() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-5xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-[#002b56] to-blue-400">
-            Welcome to ESEN
+          Bienvenue à l'ESEN
           </h2>
           <p className="text-xl leading-relaxed mb-10 text-gray-600">
           L'École Supérieure d'Économie Numérique (ESEN) de l'Université de La Manouba (UMA), fondée en 2004 et réformée profondément en 2012, est un établissement d'enseignement supérieur qui s'est positionné dans un domaine de formation en évolution constante, à savoir l'économie numérique. Ainsi, l'ESEN a toujours porté dans ses gênes une capacité d'adaptation et une agilité exceptionnelles à répondre aux changements.
@@ -44,7 +44,7 @@ L'ESEN offre des licences et des mastères en E-Business (spécialité de prédi
     size="lg"
     className="bg-blue-500 hover:bg-blue-600 text-white transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-xl"
   >
-    Learn More
+    Découvrez l'ESEN
   </Button>
 </a>
         </motion.div>

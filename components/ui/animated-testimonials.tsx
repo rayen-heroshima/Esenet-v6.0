@@ -1,187 +1,82 @@
 "use client";
 
-import {
-  IconArrowLeft,
-  IconArrowRight,
-  IconBrandFacebook,
-  IconBrandInstagram,
-  IconBrandLinkedin,
-  IconBrandTwitter,
-} from "@tabler/icons-react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-type Testimonial = {
+// Define the types for the props and testimonial data
+interface Testimonial {
   quote: string;
   name: string;
   designation: string;
   src: string;
-};
-export const AnimatedTestimonials = ({
-  testimonials,
-  autoplay = false,
-}: {
+}
+
+interface AnimatedTestimonialsProps {
   testimonials: Testimonial[];
-  autoplay?: boolean;
-}) => {
-  const [active, setActive] = useState(0);
+}
 
-  const handleNext = () => {
-    setActive((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const handlePrev = () => {
-    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const isActive = (index: number) => {
-    return index === active;
-  };
+export default function AnimatedTestimonials({ testimonials }: AnimatedTestimonialsProps) {
+  const containerRef = useRef<HTMLDivElement | null>(null); // Correct type for the containerRef
+  const [index, setIndex] = useState<number>(0); // Ensure the state is of type number
+  const scrollSpeed = 2;
+  const testimonialsLength = testimonials.length;
 
   useEffect(() => {
-    if (autoplay) {
-      const interval = setInterval(handleNext, 5000);
-      return () => clearInterval(interval);
-    }
-  }, [autoplay]);
+    const scrollContainer = containerRef.current;
+    let scrollInterval: NodeJS.Timeout; // Type the interval for TypeScript
 
-  const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
-  };
+    const startScroll = () => {
+      scrollInterval = setInterval(() => {
+        if (!scrollContainer) return; // Safeguard against undefined scrollContainer
+        if (
+          scrollContainer.scrollLeft + scrollContainer.offsetWidth >= scrollContainer.scrollWidth
+        ) {
+          // Reset scroll position back to the beginning
+          scrollContainer.scrollLeft = 0;
+          // Move to the next "testimonial" by updating the index
+          setIndex((prevIndex) => (prevIndex + 1) % testimonialsLength);
+        } else {
+          // Continue scrolling
+          scrollContainer.scrollLeft += scrollSpeed;
+        }
+      }, 20);
+    };
+
+    startScroll();
+
+    return () => clearInterval(scrollInterval); // Clean up the interval on unmount
+  }, [testimonialsLength]);
+
   return (
-    <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20">
-      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-y-20 gap-x-40">
-        <div className="">
-          <div className="relative h-[500px] w-full">
-            <AnimatePresence>
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.src}
-                  initial={{
-                    opacity: 0,
-                    scale: 0.9,
-                    z: -100,
-                    rotate: randomRotateY(),
-                  }}
-                  animate={{
-                    opacity: isActive(index) ? 1 : 0.7,
-                    scale: isActive(index) ? 1 : 0.95,
-                    z: isActive(index) ? 0 : -100,
-                    rotate: isActive(index) ? 0 : randomRotateY(),
-                    zIndex: isActive(index)
-                      ? 999
-                      : testimonials.length + 2 - index,
-                    y: isActive(index) ? [0, -80, 0] : 0,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    scale: 0.9,
-                    z: 100,
-                    rotate: randomRotateY(),
-                  }}
-                  transition={{
-                    duration: 0.4,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute inset-0 origin-bottom"
-                >
-                  <Image
-                    src={testimonial.src}
-                    alt={testimonial.name}
-                    width={500}
-                    height={700}
-                    draggable={false}
-                    className="h-full w-full rounded-3xl object-cover object-center"
-                  />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-        </div>
-        <div className="flex justify-between flex-col py-4">
-          <motion.div
-            key={active}
-            initial={{
-              y: 20,
-              opacity: 0,
-            }}
-            animate={{
-              y: 0,
-              opacity: 1,
-            }}
-            exit={{
-              y: -20,
-              opacity: 0,
-            }}
-            transition={{
-              duration: 0.2,
-              ease: "easeInOut",
-            }}
+    <div className="overflow-hidden relative w-full" ref={containerRef}>
+      <div className="flex w-max">
+        {[...testimonials, ...testimonials].map((testimonial, idx) => (
+          <div
+            key={idx}
+            className="flex-shrink-0 min-w-[350px] text-center p-6" // Adjusted the minimum width
           >
-            <h3 className="text-2xl font-bold dark:text-white text-black">
-              {testimonials[active].name}
-            </h3>
-            <p className="text-sm text-gray-500 dark:text-neutral-500">
-              {testimonials[active].designation}
-            </p>
-            <motion.p className="text-lg text-gray-500 mt-8 dark:text-neutral-300">
-              {testimonials[active].quote.split(" ").map((word, index) => (
-                <motion.span
-                  key={index}
-                  initial={{
-                    filter: "blur(10px)",
-                    opacity: 0,
-                    y: 5,
-                  }}
-                  animate={{
-                    filter: "blur(0px)",
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    ease: "easeInOut",
-                    delay: 0.02 * index,
-                  }}
-                  className="inline-block"
-                >
-                  {word}&nbsp;
-                </motion.span>
-              ))}
-            </motion.p>
-            <div className="flex flex-row gap-x-4 mt-5">
-              <Link href="#" target="_blank">
-                <IconBrandLinkedin className=" border-2 border-slate-500 size-8 rounded-full text-slate-500 font-bold p-1" />
-              </Link>
-              <Link href="#" target="_blank">
-                <IconBrandTwitter className=" border-2 border-slate-500 size-8 rounded-full text-slate-500 font-bold p-1" />
-              </Link>
-              <Link href="#" target="_blank">
-                <IconBrandInstagram className=" border-2 border-slate-500 size-8 rounded-full text-slate-500 font-bold p-1" />
-              </Link>
-              <Link href="#" target="_blank">
-                <IconBrandFacebook className=" border-2 border-slate-500 size-8 rounded-full text-slate-500 font-bold p-1" />
-              </Link>
+            <div className="testimonial-card group relative overflow-hidden bg-white shadow-xl rounded-lg transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl">
+              {/* Card with Image as Background */}
+              <div
+                className="testimonial-image w-full h-[400px] bg-cover bg-center transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:opacity-80" // Adjusted height of the card
+                style={{ backgroundImage: `url(${testimonial.src})` }}
+              />
+              
+              {/* Card Content */}
+              <div className="testimonial-content absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                <p className="text-2xl font-semibold transform group-hover:translate-y-4 transition-transform duration-300 ease-in-out">
+                  {testimonial.name}
+                </p>
+                <p className="text-md transform group-hover:translate-y-2 transition-transform duration-300 ease-in-out">
+                  {testimonial.designation}
+                </p>
+                <p className="mt-4 italic text-xl transform group-hover:translate-y-6 transition-transform duration-300 ease-in-out">
+                  {`"${testimonial.quote}"`}
+                </p>
+              </div>
             </div>
-          </motion.div>
-          <div className="flex gap-4 pt-12 md:pt-0">
-            <button
-              onClick={handlePrev}
-              className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
-            >
-              <IconArrowLeft className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
-            >
-              <IconArrowRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
-            </button>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
-};
+}
