@@ -46,7 +46,7 @@ export function EventProgram() {
       content: (
         <div className="dark:bg-neutral-800 p-5 mb-3">
           <p className="text-white dark:text-neutral-200 text-lg md:text-xl font-medium mb-4 leading-relaxed">
-            Inspirez-vous des startups émergentes qui façonnent l'avenir avec des solutions innovantes et des modèles d'affaires disruptifs.
+            Inspirez-vous des startups émergentes qui façonnent l&apos;avenir avec des solutions innovantes et des modèles d&apos;affaires disruptifs.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
@@ -82,7 +82,7 @@ export function EventProgram() {
       content: (
         <div className="dark:bg-neutral-800 p-5 mb-3">
           <p className="text-white dark:text-neutral-200 text-lg md:text-xl font-medium mb-4 leading-relaxed">
-            Participez à des discussions dynamiques sur les enjeux clés de l'industrie et échangez des idées avec des experts et autres participants.
+            Participez à des discussions dynamiques sur les enjeux clés de l&apos;industrie et échangez des idées avec des experts et autres participants.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image

@@ -60,7 +60,7 @@ const Countdown: React.FC = () => {
   if (!timeLeft) {
     return (
       <div className="text-white text-xl font-bold bg-blue-500/10 backdrop-blur-sm rounded-lg p-4 mt-6">
-        L'événement a commencé !
+        L&apos;événement a commencé !
       </div>
     );
   }
@@ -69,7 +69,7 @@ const Countdown: React.FC = () => {
     <div className="mt-8 mb-6">
       <div className="text-center mb-4">
         <span className="text-blue-200 text-sm uppercase tracking-wider">
-          L'événement commence dans
+          L&apos;événement commence dans
         </span>
       </div>
       <div className="flex flex-wrap justify-center gap-2">

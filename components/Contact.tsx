@@ -115,7 +115,7 @@ export function Contact() {
                 required
                 className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12 w-full"
               >
-                <option value="">Niveau d'études (L1, L2, L3, M1, M2)</option>
+                <option value="">Niveau d&apos;études (L1, L2, L3, M1, M2)</option>
                 <option value="L1" className='text-black'>L1</option>
                 <option value="L2" className='text-black'>L2</option>
                 <option value="L3" className='text-black'>L3</option>
@@ -138,10 +138,10 @@ export function Contact() {
                 className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12 w-full"
               >
                 <option value="">Êtes-vous à la recherche :</option>
-                <option value="stage" className='text-black'>D’un stage</option>
-                <option value="emploi" className='text-black'>D’un emploi</option>
-                <option value="apprentissage" className='text-black'>D’un apprentissage</option>
-                <option value="information" className='text-black'>Juste d’information</option>
+                <option value="stage" className='text-black'>D&apos;un stage</option>
+                <option value="emploi" className='text-black'>D&apos;un emploi</option>
+                <option value="apprentissage" className='text-black'>D&apos;un apprentissage</option>
+                <option value="information" className='text-black'>Juste d&apos;information</option>
               </select>
               <select
                 name="source"

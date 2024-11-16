@@ -28,12 +28,12 @@ export function Introduction() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-5xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-[#002b56] to-blue-400">
-          Bienvenue à l'ESEN
+          Bienvenue à l&apos;ESEN
           </h2>
           <p className="text-xl leading-relaxed mb-10 text-gray-600">
-          L'École Supérieure d'Économie Numérique (ESEN) de l'Université de La Manouba (UMA), fondée en 2004 et réformée profondément en 2012, est un établissement d'enseignement supérieur qui s'est positionné dans un domaine de formation en évolution constante, à savoir l'économie numérique. Ainsi, l'ESEN a toujours porté dans ses gênes une capacité d'adaptation et une agilité exceptionnelles à répondre aux changements.
+          L&apos;École Supérieure d&apos;Économie Numérique (ESEN) de l&apos;Université de La Manouba (UMA), fondée en 2004 et réformée profondément en 2012, est un établissement d&apos;enseignement supérieur qui s&apos;est positionné dans un domaine de formation en évolution constante, à savoir l&apos;économie numérique. Ainsi, l&apos;ESEN a toujours porté dans ses gênes une capacité d&apos;adaptation et une agilité exceptionnelles à répondre aux changements.
 
-L'ESEN offre des licences et des mastères en E-Business (spécialité de prédilection de l'école), Business Inteligence, Information System, Data Science, Veille et intelligence compétitive et en contrôle de gestion digitalisé.
+L&apos;ESEN offre des licences et des mastères en E-Business (spécialité de prédilection de l&apos;école), Business Inteligence, Information System, Data Science, Veille et intelligence compétitive et en contrôle de gestion digitalisé.
           </p>
           <a
   href="https://www.esen.tn/portail/"
@@ -44,7 +44,7 @@ L'ESEN offre des licences et des mastères en E-Business (spécialité de prédi
     size="lg"
     className="bg-blue-500 hover:bg-blue-600 text-white transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-xl"
   >
-    Découvrez l'ESEN
+    Découvrez l&apos;ESEN
   </Button>
 </a>
         </motion.div>
