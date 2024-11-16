@@ -1,4 +1,3 @@
-
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from "@/lib/prisma";
 import nodemailer from 'nodemailer';
@@ -23,18 +22,31 @@ const transporter = nodemailer.createTransport({
 // Named export for POST method
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { firstname, lastname, email, phone, university, heardAboutUs } = body;
+  const {
+    nom,
+    prenom,
+    email,
+    Tele,
+    faculte,
+    niveau,
+    specialite,
+    recherche,
+    source
+  } = body;
 
   try {
-    // Create user in the database
+    // Create user in the database with the complete model
     const registration = await prisma.registration.create({
       data: {
-        firstname,
-        lastname,
+        nom,
+        prenom,
         email,
-        phone,
-        university,
-        heardAboutUs,
+        Tele,
+        faculte,
+        niveau,
+        specialite,
+        recherche,
+        source,
       },
     });
 
@@ -45,7 +57,7 @@ export async function POST(req: NextRequest) {
       subject: "Verify your attendance",
       html: `
         <h1>Dear visitor, welcome to ESENET 2024</h1>
-        <p>Hi ${firstname} ${lastname},</p>
+        <p>Hi ${prenom} ${nom},</p>
         <p>Your registration code number is: <strong>${registration.id}</strong></p>
         <p>See you on November 27th 😃.</p>
       `,
@@ -62,16 +74,19 @@ export async function POST(req: NextRequest) {
 
     worksheet.columns = [
       { header: 'ID', key: 'id', width: 10 },
-      { header: 'First Name', key: 'firstname', width: 15 },
-      { header: 'Last Name', key: 'lastname', width: 15 },
+      { header: 'Nom', key: 'nom', width: 15 },
+      { header: 'Prenom', key: 'prenom', width: 15 },
       { header: 'Email', key: 'email', width: 25 },
-      { header: 'Phone', key: 'phone', width: 15 },
-      { header: 'University', key: 'university', width: 20 },
-      { header: 'Heard About Us', key: 'heardAboutUs', width: 20 },
+      { header: 'Tele', key: 'Tele', width: 15 },
+      { header: 'Faculte', key: 'faculte', width: 20 },
+      { header: 'Niveau', key: 'niveau', width: 15 },
+      { header: 'Specialite', key: 'specialite', width: 20 },
+      { header: 'Recherche', key: 'recherche', width: 20 },
+      { header: 'Source', key: 'source', width: 20 },
     ];
 
-    allRegistrations.forEach(registration => {
-      worksheet.addRow(registration);
+    allRegistrations.forEach(reg => {
+      worksheet.addRow(reg);
     });
 
     const filePath = path.join(process.cwd(), 'registrations.xlsx');
